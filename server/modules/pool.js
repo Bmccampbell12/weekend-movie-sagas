@@ -7,12 +7,16 @@ let pool;
 // eg: 
 //  DATABASE_URL=postgresql://jDoe354:secretPw123@some.db.com/prime_app
 if (process.env.DATABASE_URL) {
+    // console.log('DATABASE_URL:', process.env.DATABASE_URL);
     pool = new pg.Pool({
         connectionString: process.env.DATABASE_URL,
         ssl: {
             rejectUnauthorized: false
         }
     });
+    // pool.connect()
+    // .then(() => console.log('connected to db via dburl'))
+    // .catch(err => console.error('Error connecting to DB', err))
 }
 // When we're running this app on our own computer
 // we'll connect to the postgres database that is 
